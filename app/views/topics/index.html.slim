@@ -1,0 +1,4 @@
+- @topics.each do |topic|
+  = link_to topic.name, topic_concepts_path(topic)
+
+= link_to 'New topic', new_topic_path

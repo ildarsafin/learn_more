@@ -1,0 +1,4 @@
+- @concepts.each do |concept|
+  = link_to concept.title, topic_concept_path(@topic, concept)
+
+= link_to 'New concept', new_topic_concept_path(@topic)
