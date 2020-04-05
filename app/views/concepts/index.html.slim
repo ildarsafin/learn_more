@@ -1,4 +1,11 @@
-- @concepts.each do |concept|
-  = link_to concept.title, topic_concept_path(@topic, concept)
+section class="space--sm"
+  .container
+    .row
+      .col-md-12
+        - @concepts.each do |concept|
+          .product
+            = link_to topic_concept_path(@topic, concept), class: "block"
+              h5
+                == concept.title
 
 = link_to 'New concept', new_topic_concept_path(@topic)

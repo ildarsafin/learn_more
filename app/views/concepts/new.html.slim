@@ -1,4 +1,4 @@
 = simple_form_for [@topic, @concept] do |f|
   = f.input :title
-  = f.input :content
+  = f.input :content, as: :rich_text_area
   = f.submit
