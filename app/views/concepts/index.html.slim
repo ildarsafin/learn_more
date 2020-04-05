@@ -6,6 +6,6 @@ section class="space--sm"
           .product
             = link_to topic_concept_path(@topic, concept), class: "block"
               h5
-                == concept.title
+                = concept.title
 
 = link_to 'New concept', new_topic_concept_path(@topic)
