@@ -9,3 +9,10 @@ p
   =h @concept.content
 
 
+p
+
+
+  - if current_user.learned?(@concept)
+    p learned
+  - else
+    = link_to 'Learn', concept_learn_path(@concept), method: :post

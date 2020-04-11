@@ -15,10 +15,16 @@ class TopicsController < ApplicationController
     @topics = Topic.all
   end
 
+  def subscribe
+    topic = Topic.find_by(params[:topic_id])
+    current_user.topic_subscriptions.find_or_create_by(topic: topic)
+    redirect_to topics_path
+  end
+
   private
 
   def topic_params
-    params.require(:topic).permit(:name)
+    params.require(:topic).permit(:name, :featured_image)
   end
 
 end

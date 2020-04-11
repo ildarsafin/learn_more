@@ -3,9 +3,19 @@ section class="space--sm"
     .row
       .col-md-12
         - @topics.each do |topic|
-              .product
-                = link_to topic_concepts_path(topic), class: "block"
-                  h5
-                    = topic.name
+          div
+            p
+              = link_to topic_concepts_path(topic)
+                h5
+                  = topic.name
+          - if topic.featured_image.attached?
+            div
+              = image_tag topic.featured_image
+          p
+            - if current_user.subscribed?(topic)
+              p subscribed
+            - else
+              = link_to 'subscribe', topic_subscribe_path(topic), method: :post
+
 
 = link_to 'New topic', new_topic_path
