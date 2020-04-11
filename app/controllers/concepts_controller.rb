@@ -23,6 +23,7 @@ class ConceptsController < ApplicationController
 
   def show
     @concept = Concept.find(params[:id])
+    @topic = @concept.topic
   end
 
   def learn

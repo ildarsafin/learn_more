@@ -16,9 +16,9 @@
         <div class="container">
           <div class="row">
             <div class="col-3 col-md-2">
-              <a href="#">
+              <%= link_to topics_path do %>
                 <div class="logo logo-white">LearnMore</div>
-              </a>
+              <% end %>
             </div>
             <div class="col-9 col-md-10 text-right">
               <a href="#" class="hamburger-toggle" data-toggle-class="#menu5;hidden-xs hidden-sm">
@@ -36,9 +36,9 @@
           <div class="row">
             <div class="col-lg-1 hidden-xs hidden-sm">
               <div class="bar__module">
-                <a href="#">
+                <%= link_to topics_path do %>
                   <div class="logo logo-white">LearnMore</div>
-                </a>
+                <% end %>
               </div>
               <!--end module-->
             </div>
@@ -46,15 +46,17 @@
               <div class="bar__module">
                 <ul class="menu-horizontal">
                   <li>
-                    <a href="#">
-                      <i class="stack-interface stack-plus-circled"></i> Create
-                    </a>
+                    <%= link_to topics_path do %>
+                      <i class="stack-interface"></i> Topics
+                    <% end %>
                   </li>
+                  <% if @topic %>
                   <li>
-                    <a href="#">
-                      <i class="stack-interface stack-cog"></i> Manage
-                    </a>
+                    <%= link_to topic_concepts_path(@topic) do %>
+                      <i class="stack-interface"></i> <%= @topic.name %>
+                    <% end %>
                   </li>
+                  <% end %>
                 </ul>
               </div>
             </div>
@@ -92,9 +94,6 @@
         </div>
         <!--end of container-->
       </nav>
-      <div>
-        <%= current_user && current_user.email %>
-      </div>
       <%= yield %>
     </div>
   </body>
