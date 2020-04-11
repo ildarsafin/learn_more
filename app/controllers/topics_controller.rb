@@ -16,7 +16,7 @@ class TopicsController < ApplicationController
   end
 
   def subscribe
-    topic = Topic.find_by(params[:topic_id])
+    topic = Topic.find(params[:topic_id])
     current_user.topic_subscriptions.find_or_create_by(topic: topic)
     redirect_to topics_path
   end

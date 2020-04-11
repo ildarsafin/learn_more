@@ -24,7 +24,7 @@ class ConceptsController < ApplicationController
   end
 
   def learn
-    concept = Concept.find_by(params[:concept_id])
+    concept = Concept.find(params[:concept_id])
     current_user.concept_learnings.find_or_create_by(concept: concept)
     redirect_to topic_concept_path(concept.topic, concept)
   end

@@ -1,21 +1,30 @@
 section class="space--sm"
   .container
     .row
-      .col-md-12
+      .col-md-6
         - @topics.each do |topic|
-          div
-            p
-              = link_to topic_concepts_path(topic)
-                h5
+          .card.card-2.text-center
+            .card__top
+              = link_to topic_concepts_path(topic) do
+                - if topic.featured_image.attached?
+                  = image_tag topic.featured_image
+            .card__body
+              = link_to topic_concepts_path(topic) do
+                h4
                   = topic.name
-          - if topic.featured_image.attached?
-            div
-              = image_tag topic.featured_image
-          p
-            - if current_user.subscribed?(topic)
-              p subscribed
-            - else
-              = link_to 'subscribe', topic_subscribe_path(topic), method: :post
+              p
+                span class="type--fade" Understanding the fundamentals
+                | Construct mockups or production-ready pages in-browser with Variant Page Builder
 
+            .card__bottom.text-center
+              .card__action
+                - if current_user.subscribed?(topic)
+                  span class="h6 type--uppercase" Subscribed
+                  a href="#"
+                    i class="material-icons" flip_to_front
+                - else
+                  span class="h6 type--uppercase" Subscribe
+                  = link_to topic_subscribe_path(topic), method: :post do
+                    i class="material-icons" flip_to_front
 
 = link_to 'New topic', new_topic_path
