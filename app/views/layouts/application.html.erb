@@ -11,6 +11,9 @@
 
   <body>
     <div class="main-container">
+      <div>
+        <%= current_user && current_user.email %>
+      </div>
       <%= yield %>
     </div>
   </body>

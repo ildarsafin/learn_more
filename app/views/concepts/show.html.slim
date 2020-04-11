@@ -1,5 +1,11 @@
 h2
   = @concept.title
 
+- if @concept.featured_image.attached?
+  p
+    = image_tag @concept.featured_image
+
 p
   =h @concept.content
+
+

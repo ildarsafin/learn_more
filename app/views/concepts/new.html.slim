@@ -1,4 +1,11 @@
 = simple_form_for [@topic, @concept] do |f|
-  = f.input :title
-  = f.input :content, as: :rich_text_area
-  = f.submit
+  div
+    = f.input :title
+
+  div
+    = f.input :featured_image
+
+  div
+    = f.input :content, as: :rich_text_area
+  div
+    = f.submit

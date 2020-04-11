@@ -8,7 +8,9 @@ class ConceptsController < ApplicationController
   def create
     @topic = Topic.find(params[:topic_id])
 
-    @concept = @topic.concepts.create(concept_params)
+    @concept = @topic.concepts.build(concept_params)
+    @concept.created_by = current_user.id
+    @concept.save
     redirect_to topic_concepts_path(@topic)
   end
 
@@ -24,7 +26,7 @@ class ConceptsController < ApplicationController
   private
 
   def concept_params
-    params.require(:concept).permit(:title, :content)
+    params.require(:concept).permit(:title, :content, :featured_image)
   end
 
 end
