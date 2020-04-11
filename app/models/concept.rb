@@ -11,6 +11,5 @@ class Concept < ApplicationRecord
   validates :featured_image, presence: true
   validates :learning_time_minutes, presence: true
   validates :short_description, presence: true
-  validates :content, presence: true
   validates :title, presence: true
 end
