@@ -32,7 +32,7 @@ class ConceptsController < ApplicationController
   private
 
   def concept_params
-    params.require(:concept).permit(:title, :content, :featured_image)
+    params.require(:concept).permit(:title, :content, :featured_image, :short_description, :learning_time_minutes)
   end
 
 end

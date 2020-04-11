@@ -6,6 +6,15 @@ class User < ApplicationRecord
   has_many :concept_learnings
   has_many :concepts, through: :concept_learnings
 
+  has_one_attached :avatar, dependent: :destroy
+
+  validates :full_name, presence: true
+  validates :avatar, presence: true
+
+  def topic_creator?(topic)
+    topic.created_by == id
+  end
+
   def subscribed?(topic)
     topic_subscriptions.where(topic: topic).present?
   end

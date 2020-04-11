@@ -1,8 +1,8 @@
 section class="space--sm"
   .container
     .row
-      .col-md-6
-        - @topics.each do |topic|
+      - @topics.each do |topic|
+        .col-md-6
           .card.card-2.text-center
             .card__top
               = link_to topic_concepts_path(topic) do
@@ -12,15 +12,16 @@ section class="space--sm"
               = link_to topic_concepts_path(topic) do
                 h4
                   = topic.name
+
+              span class="type--fade" by #{topic.creator.full_name}
               p
-                span class="type--fade" Understanding the fundamentals
-                | Construct mockups or production-ready pages in-browser with Variant Page Builder
+                = topic.short_description
 
             .card__bottom.text-center
               .card__action
                 - if current_user.subscribed?(topic)
-                  span class="h6 type--uppercase" Subscribed
-                  a href="#"
+                  span class="h6 type--uppercase type--fade" Subscribed
+                  a href="#" disabled=true
                     i class="material-icons" flip_to_front
                 - else
                   span class="h6 type--uppercase" Subscribe
