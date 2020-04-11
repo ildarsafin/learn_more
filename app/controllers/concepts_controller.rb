@@ -1,5 +1,7 @@
 class ConceptsController < ApplicationController
 
+  before_action :authenticate_user!, only: %i[new create learn]
+
   def new
     @topic = Topic.find(params[:topic_id])
     @concept = @topic.concepts.build

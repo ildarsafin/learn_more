@@ -2,10 +2,10 @@ section class="space--sm"
   .container
     .row
       - @concepts.each do |concept|
-        .col-md-6
+        .col-md-3
           .card.card-2.text-center
             .card__top
-              - if current_user.learned?(concept)
+              - if user_signed_in? && current_user.learned?(concept)
                 span class="label" Learned
               = link_to topic_concept_path(@topic, concept) do
                 - if concept.featured_image.attached?

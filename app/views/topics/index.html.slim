@@ -19,7 +19,7 @@ section class="space--sm"
 
             .card__bottom.text-center
               .card__action
-                - if current_user.subscribed?(topic)
+                - if user_signed_in? && current_user.subscribed?(topic)
                   span class="h6 type--uppercase type--fade" Subscribed
                   a href="#" disabled=true
                     i class="material-icons" flip_to_front

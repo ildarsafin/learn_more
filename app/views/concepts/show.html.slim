@@ -1,18 +1,18 @@
-h2
-  = @concept.title
+section class="space--sm"
+  .container
+    .row
+      .col-md-12
+        h2
+          = @concept.title
 
-- if @concept.featured_image.attached?
-  p
-    = image_tag @concept.featured_image
+        - if @concept.featured_image.attached?
+          p
+            = image_tag @concept.featured_image
 
-p
-  =h @concept.content
+        p
+          =h @concept.content
 
-
-p
-
-
-  - if current_user.learned?(@concept)
-    p learned
-  - else
-    = link_to 'Learn', concept_learn_path(@concept), method: :post
+- if current_user.learned?(@concept)
+  p learned
+- else
+  = link_to 'Learn', concept_learn_path(@concept), method: :post
