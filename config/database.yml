@@ -24,4 +24,5 @@ test:
 production:
   <<: *default
   database: learn_more_production
+  user: postgres
   url: <%= ENV['DATABASE_URL'] %>

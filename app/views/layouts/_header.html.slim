@@ -24,7 +24,7 @@ nav class="bar bar--sm bg--dark" id="menu5"
               = link_to topics_path do
                 i class="stack-interface"
                 | Topics
-            - if @topic
+            - if @topic&.persisted?
               li
                 = link_to topic_concepts_path(@topic) do
                   i class="stack-interface"
