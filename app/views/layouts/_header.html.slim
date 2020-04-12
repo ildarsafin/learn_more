@@ -1,0 +1,49 @@
+.bar.bg--dark.bar--sm.visible-sm.visible-xs
+  .container
+    .row
+      .col-3.col-md-2
+        = link_to topics_path do
+          .logo.logo-white LearnMore
+
+      .col-9.col-md-10.text-right
+        a href="#" class="hamburger-toggle" data-toggle-class="#menu5;hidden-xs hidden-sm"
+          i class="icon icon--sm stack-interface stack-menu"
+
+nav class="bar bar--sm bg--dark" id="menu5"
+  .container
+    .row
+      .col-lg-1.hidden-xs.hidden-sm
+        .bar__module
+          = link_to topics_path do
+            .logo.logo-white LearnMore
+
+      .col-lg-5
+        .bar__module
+          ul class="menu-horizontal"
+            li
+              = link_to topics_path do
+                i class="stack-interface"
+                | Topics
+            - if @topic
+              li
+                = link_to topic_concepts_path(@topic) do
+                  i class="stack-interface"
+                  = @topic.name
+
+      .col-lg-6.text-right.text-left-xs
+        - if user_signed_in?
+          .bar__module
+            ul class="menu-horizontal"
+              li class="dropdown"
+                span class="dropdown__trigger"
+                  = image_tag(current_user.avatar, width: 20, class: 'avatar image--xxs') if current_user.avatar.attached?
+                  = current_user.full_name
+
+        - else
+          .bar__module
+            = link_to new_user_session_path, class: "btn btn--sm type--uppercase" do
+              span class="btn__text"
+                | Log In
+            = link_to new_user_registration_path, class: "btn btn--primary btn--sm type--uppercase" do
+              span class="btn__text"
+                | Register
