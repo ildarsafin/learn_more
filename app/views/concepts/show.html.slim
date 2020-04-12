@@ -12,7 +12,7 @@ section class="space--sm"
         p
           =h @concept.content
 
-- if current_user.learned?(@concept)
+- if user_signed_in? && current_user.learned?(@concept)
   p learned
 - else
   = link_to 'Learn', concept_learn_path(@concept), method: :post
