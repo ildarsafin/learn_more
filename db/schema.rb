@@ -12,11 +12,14 @@
 
 ActiveRecord::Schema.define(version: 2020_04_11_125007) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
     t.string "record_type", null: false
-    t.integer "record_id", null: false
+    t.bigint "record_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
@@ -25,8 +28,8 @@ ActiveRecord::Schema.define(version: 2020_04_11_125007) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -44,8 +47,8 @@ ActiveRecord::Schema.define(version: 2020_04_11_125007) do
   end
 
   create_table "concept_learnings", force: :cascade do |t|
-    t.integer "concept_id"
-    t.integer "user_id"
+    t.bigint "concept_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["concept_id"], name: "index_concept_learnings_on_concept_id"
@@ -57,7 +60,7 @@ ActiveRecord::Schema.define(version: 2020_04_11_125007) do
     t.text "content"
     t.string "featured_image"
     t.integer "created_by"
-    t.integer "topic_id"
+    t.bigint "topic_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "short_description"
@@ -66,8 +69,8 @@ ActiveRecord::Schema.define(version: 2020_04_11_125007) do
   end
 
   create_table "topic_subscriptions", force: :cascade do |t|
-    t.integer "topic_id"
-    t.integer "user_id"
+    t.bigint "topic_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["topic_id"], name: "index_topic_subscriptions_on_topic_id"
