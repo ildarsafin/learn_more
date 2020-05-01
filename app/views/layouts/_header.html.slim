@@ -34,10 +34,9 @@ nav class="bar bar--sm bg--dark" id="menu5"
         - if user_signed_in?
           .bar__module
             ul class="menu-horizontal"
-              li class="dropdown"
-                span class="dropdown__trigger"
-                  = image_tag(current_user.avatar, width: 20, class: 'avatar image--xxs') if current_user.avatar.attached?
-                  = current_user.full_name
+              li
+                = image_tag(current_user.avatar, width: 20, class: 'avatar image--xxs') if current_user.avatar.attached?
+                = current_user.full_name
 
         - else
           .bar__module
