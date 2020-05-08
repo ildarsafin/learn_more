@@ -29,7 +29,7 @@ $.ajaxSetup({
   },
 });
 
-$(document).ready(function() {
+document.addEventListener('turbolinks:load', () => {
 
   var element = document.querySelector("trix-editor")
 
@@ -100,7 +100,7 @@ $(document).ready(function() {
   }
 });
 
-$(document).ready(() => {
+document.addEventListener('turbolinks:load', () => {
   $(".embed").each(function(i, embed) {
     const $embed = $(embed);
     $embed
