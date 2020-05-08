@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     post :learn
   end
 
+  resources :embeds
+
   root to: 'topics#index'
 
 end

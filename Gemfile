@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
 
+gem "rest-client"
+
 gem 'slim'
 gem 'simple_form'
 gem 'image_processing', '~> 1.2'

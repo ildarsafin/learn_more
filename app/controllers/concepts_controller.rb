@@ -18,7 +18,7 @@ class ConceptsController < ApplicationController
 
   def index
     @topic = Topic.find(params[:topic_id])
-    @concepts = @topic.concepts.with_rich_text_content
+    @concepts = @topic.concepts.with_rich_text_content_and_embeds
   end
 
   def show

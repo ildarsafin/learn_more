@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_26_185740) do
+ActiveRecord::Schema.define(version: 2020_05_08_160034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,25 @@ ActiveRecord::Schema.define(version: 2020_04_26_185740) do
     t.string "short_description"
     t.integer "learning_time_minutes"
     t.index ["topic_id"], name: "index_concepts_on_topic_id"
+  end
+
+  create_table "embeds", force: :cascade do |t|
+    t.text "content"
+    t.string "height"
+    t.string "author_url"
+    t.string "thumbnail_url"
+    t.string "width"
+    t.string "author_name"
+    t.string "thumbnail_height"
+    t.string "title"
+    t.string "version"
+    t.string "provider_url"
+    t.string "thumbnail_width"
+    t.string "embed_type"
+    t.string "provider_name"
+    t.string "html"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "topic_subscriptions", force: :cascade do |t|
