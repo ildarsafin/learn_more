@@ -1,11 +1,16 @@
-= simple_form_for @topic do |f|
-  div
-    = f.input :name
+.container
+  .row
+    .col-8
+      = simple_form_for @topic do |f|
+        .row
+          .col-12
+            = f.input :name
 
-  div
-    = f.input :short_description
+          .col-12
+            = f.input :short_description
 
-  div
-    = f.input :featured_image
+          .col-12
+            = f.input :featured_image
 
-  = f.submit
+          .col-12
+            = f.submit

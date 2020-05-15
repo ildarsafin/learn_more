@@ -1,23 +1,23 @@
-.bar.bg--dark.bar--sm.visible-sm.visible-xs
+.bar.bar--sm.visible-xs
   .container
     .row
       .col-3.col-md-2
         = link_to topics_path do
-          .logo.logo-white LearnMore
+          = image_tag "polygon.png", class: "logo logo-dark"
 
       .col-9.col-md-10.text-right
         a href="#" class="hamburger-toggle" data-toggle-class="#menu5;hidden-xs hidden-sm"
           i class="icon icon--sm stack-interface stack-menu"
 
-nav class="bar bar--sm bg--dark" id="menu5"
+nav class="bar bar--sm"
   .container
     .row
       .col-lg-1.hidden-xs.hidden-sm
         .bar__module
           = link_to topics_path do
-            .logo.logo-white LearnMore
+            = image_tag "polygon.png", class: "logo logo-dark"
 
-      .col-lg-5
+      .col-lg-5.hidden-xs.hidden-sm
         .bar__module
           ul class="menu-horizontal"
             li

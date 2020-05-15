@@ -1,14 +1,22 @@
-= simple_form_for [@topic, @concept] do |f|
-  div
-    = f.input :title
+.container
+  .row
+    .col-8
+      = simple_form_for [@topic, @concept] do |f|
+        .row
+          .col-12
+            = f.input :title
 
-  div
-    = f.input :featured_image
-  div
-    = f.input :short_description
-  div
-    = f.input :learning_time_minutes
-  div
-    = f.input :content, as: :rich_text_area, input_html: { data: { embeds_path: embeds_path(@concept, format: :json) } }
-  div
-    = f.submit
+          .col-12
+            = f.input :featured_image
+
+          .col-12
+            = f.input :short_description
+
+          .col-12
+            = f.input :learning_time_minutes
+
+          .col-12
+            = f.input :content, as: :rich_text_area, input_html: { data: { embeds_path: embeds_path(@concept, format: :json) } }
+
+          .col-12
+            = f.submit
