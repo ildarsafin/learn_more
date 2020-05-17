@@ -1,31 +1,31 @@
 h2 Log in
+.container
+  section class="space--xs imageblock switchable feature-large"
+    .imageblock__content.col-lg-6.col-md-4.pos-right
+      .background-image-holder
+        = image_tag 'landing-5.jpg'
 
-.space--xs.imageblock.switchable.feature-large
-  .imageblock__content.col-lg-6.col-md-4.pos-right
-    .background-image-holder
-      = image_tag 'landing-5.jpg'
+    .container
+      .row
+        .col-lg-5.col-md-7
+          = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            .row
+              .col-12
+                = f.input :email,
+                  required: false,
+                  autofocus: true,
+                  input_html: { autocomplete: 'email' }
 
-  .container
-    .row
-      .col-lg-5.col-md-7
-        = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-          .row
-            .col-12
-              = f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: 'email' }
+              .col-12
+                = f.input :password,
+                  required: false,
+                  input_html: { autocomplete: 'current-password' }
 
-            .col-12
-              = f.input :password,
-                required: false,
-                input_html: { autocomplete: 'current-password' }
+              .col-12
+                .input-checkbox
+                  = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
 
-            .col-12
-              .input-checkbox
-                = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
-
-            .col-12
-              = f.button :submit, 'Log in', class: "btn btn--primary type--uppercase"
+              .col-12
+                = f.button :submit, 'Log in', class: "btn btn--primary type--uppercase"
 
 = render 'users/shared/links'

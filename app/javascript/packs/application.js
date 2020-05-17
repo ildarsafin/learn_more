@@ -23,6 +23,8 @@ var jquery = jQuery;
 
 import Trix from "trix";
 
+require('application/js/scripts');
+
 $.ajaxSetup({
   headers: {
     "X-CSRF-Token": $('meta[name="csrf-token"]').attr("content"),
