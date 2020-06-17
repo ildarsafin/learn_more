@@ -24,5 +24,7 @@ test:
 production:
   <<: *default
   database: learn_more_production
-  user: postgres
-  url: <%= ENV['DATABASE_URL'] %>
+  username: <%= ENV['RDS_USERNAME'] %>
+  password: <%= ENV['RDS_PASSWORD'] %>
+  host: <%= ENV['RDS_HOSTNAME'] %>
+  port: <%= ENV['RDS_PORT'] %>
