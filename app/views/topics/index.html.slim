@@ -27,5 +27,6 @@ section class="space--sm"
                   span class="h6 type--uppercase" Subscribe
                   = link_to topic_subscribe_path(topic), method: :post do
                     i class="material-icons" flip_to_front
-
-= link_to 'New topic', new_topic_path
+  .container
+    .row
+      = link_to 'New topic', new_topic_path

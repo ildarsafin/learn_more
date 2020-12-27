@@ -19,4 +19,6 @@ section class="space--sm"
                 = concept.short_description
             .card__bottom
 
-= link_to 'New concept', new_topic_concept_path(@topic)
+  .container
+    .row
+      = link_to 'New concept', new_topic_concept_path(@topic)

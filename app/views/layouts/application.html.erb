@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title>LearnMore</title>
     <%= csrf_meta_tags %>
@@ -13,7 +14,10 @@
   <body>
     <div class="main-container">
       <%= render 'layouts/header' %>
-      <%= yield %>
+      <div class="container">
+        <%= yield %>
+      </div>
     </div>
   </body>
+
 </html>
