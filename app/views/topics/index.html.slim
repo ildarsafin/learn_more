@@ -29,4 +29,5 @@ section class="space--sm"
                     i class="material-icons" flip_to_front
   .container
     .row
-      = link_to 'New topic', new_topic_path
+      - if current_user
+        = link_to 'New topic', new_topic_path

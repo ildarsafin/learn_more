@@ -21,4 +21,5 @@ section class="space--sm"
 
   .container
     .row
-      = link_to 'New concept', new_topic_concept_path(@topic)
+      - if current_user
+        = link_to 'New concept', new_topic_concept_path(@topic)
